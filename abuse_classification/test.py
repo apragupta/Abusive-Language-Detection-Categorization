@@ -18,11 +18,11 @@ from model.abuse_classifier import AbuseClassifier
 
 # Model Hyperparameters
 tf.flags.DEFINE_integer("embedding_dim", 300, "Dimensionality of character embedding (default: 128)")
-tf.flags.DEFINE_integer("pos_vocab_size", 25, "Vocab size of POS tags")
+tf.flags.DEFINE_integer("pos_vocab_size", 26, "Vocab size of POS tags")
 tf.flags.DEFINE_integer("pos_embedding_dim", 25, "Dimensionality of pos tag embedding (default: 20)")
 tf.flags.DEFINE_float("dropout_keep_prob", 1.0, "Dropout keep probability (default: 0.5)")
 tf.flags.DEFINE_float("attention_lambda", 0.2, "Supervised attention lambda (default: 0.05)")
-tf.flags.DEFINE_string("attention_loss_type", 'encoded', "loss function of attention")
+tf.flags.DEFINE_string("attention_loss_type", "encoded", "loss function of attention")
 tf.flags.DEFINE_float("l2_reg_lambda", 0.02, "L2 regularizaion lambda (default: 0.05)")
 tf.flags.DEFINE_integer("hidden_size", 300, "Dimensionality of RNN cell (default: 300)")
 tf.flags.DEFINE_integer("pos_hidden_size", 25, "Dimensionality of POS-RNN cell")
@@ -112,7 +112,7 @@ def scoreComments(model_path, data_type="test"):
 if __name__=="__main__":
     # locate checkpoint
     if FLAGS.checkpoint == "":
-        out_dir = os.path.abspath(os.path.join(os.path.pardir, "model"))
+        out_dir = os.path.abspath(os.path.join(os.path.pardir, "model_2"))
         print("Writing to {}\n".format(out_dir))
     else:
         out_dir = FLAGS.checkpoint

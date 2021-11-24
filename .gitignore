@@ -146,3 +146,4 @@ cython_debug/
 dump/
 model/
 model_2/
+.idea/
